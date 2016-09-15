@@ -78,12 +78,12 @@
 				parent,
 				subMenu;
 
-			subMenuToggle.addEventListener( "click", function( e ) {
+			subMenuToggle.addEventListener( 'click', function( event ) {
 
-				e.preventDefault();
+				event.preventDefault();
 
 				parent = this.parentNode,
-				subMenu = parent.querySelectorAll('.sub-menu')[0];
+				subMenu = parent.querySelectorAll( '.sub-menu' )[0];
 
 				showSubMenu( subMenuToggle, subMenu );
 

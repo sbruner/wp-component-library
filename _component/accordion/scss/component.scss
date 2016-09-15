@@ -17,19 +17,17 @@ $dark-gray: #303030 !default;
 		position: absolute;
 		top: 5px;
 	}
+}
 
-	&.is-active {
-		&:before {
-			content: "-";
-		}
-	}
+.is-active .accordion-header:before {
+	content: "-";
 }
 
 .js .accordion-content {
 	display: none;
+}
 
-	&.is-active {
-		border-bottom: 1px solid $dark-gray;
-		display: block;
-	}
+.is-active .accordion-content {
+	border-bottom: 1px solid $dark-gray;
+	display: block;
 }

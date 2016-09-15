@@ -1,71 +1,11 @@
-/**
- * Name: Accessible Modal Plugin
- * Contributors: Tim Wright (tim@10up.com, @csskarma)
- * License: MIT, https://opensource.org/licenses/MIT
- * Converted from a jQuery plugin originally written by @scottohara: https://github.com/scottaohara/accessible-components
- */
+( function() {
+	'use strict';
 
-;(function (w, doc) {
+	// Local object for method references
+	var a11y_modal = {};
 
-	// Polyfill for el.matches
-	if (!Element.prototype.matches) {
-		Element.prototype.matches =
-		Element.prototype.matchesSelector ||
-		Element.prototype.mozMatchesSelector ||
-		Element.prototype.msMatchesSelector ||
-		Element.prototype.oMatchesSelector ||
-		Element.prototype.webkitMatchesSelector ||
-		function(s) {
-			var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-			i = matches.length;
-			while (--i >= 0 && matches.item(i) !== this) {}
-			return i > -1;
-		};
-	}
-
-		// Enable strict mode
-		"use strict";
-
-		// Local object for method references
-		var a11y_modal = {};
-
-		// Namespace
-		a11y_modal.ns = "Accessible Modal Dialog";
-
-	/*
-	 * Cross-browser way to deal with class management
-	 */
-
-	a11y_modal.hasClass = function ( el, cls ) {
-		return el.className && new RegExp("(\\s|^)" + cls + "(\\s|$)").test( el.className );
-	};
-
-	/*
-	 * Cross-browser way to add a class
-	 */
-
-	a11y_modal.addClass = function ( el, cls ) {
-
-		if ( el.classList ) {
-			el.classList.add(cls);
-		} else if (!a11y_modal.hasClass(el, cls)) {
-			el.className += " " + cls;
-		}
-
-	};
-
-	/*
-	 * Cross-browser way to remove a class
-	 */
-
-	a11y_modal.removeClass = function ( el, cls ) {
-		if ( el.classList ) {
-			el.classList.remove( cls );
-		} else if( a11y_modal.hasClass( el, cls ) ) {
-			var reg = new RegExp( '(\\s|^)' + cls + '(\\s|$)' );
-			el.className = el.className.replace( reg, ' ' );
-		}
-	};
+	// Namespace
+	a11y_modal.ns = "Accessible Modal Dialog";
 
 	// Caching and setting up some variables
 	var modalTrigger = '[data-action="modal-open"]';
@@ -537,4 +477,4 @@
 
 	}
 
-} )( this, this.document );
+} )( );
